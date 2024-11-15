@@ -32,12 +32,14 @@ def displayStudent(ID, filename="data.json"):
 
 #Function to display all students in the file
 def displayAll(filename="data.json"):
+    #Note all prints for this function are formated for consistent look
+    print(f"{'ID':<8} {'Name':<15} {'Phone':<15} {'Major':<5}") #Print header for the table
     with open(filename, 'r') as file:
         data = json.load(file) #Gets the info from the file and loops trough each student
         for student in data:
             # Print the info of each student as it loops through them
-            print("Id: " + str(student["ID"]) + " Name: " + str(student["Name"]) + " Phone "
-                  + str(student["Phone"]) + " Major " + str(student["Major"]))
+            print(f"{str(student["ID"]):<8} {str(student["Name"]):<15} "
+                  f"{(str(student["Phone"])):<15} {(str(student["Major"])):<5}")
 
 #Function to modify a students data
 def modifyStudent(oldID, newID, newName, newPhone, newMajor, filename="data.json"):
