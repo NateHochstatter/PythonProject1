@@ -1,0 +1,3 @@
+from Pages import *
+
+startPage()
