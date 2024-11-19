@@ -42,14 +42,12 @@ def displayAll(filename="data.json"):
                   f"{(str(student["Phone"])):<15} {(str(student["Major"])):<5}")
 
 #Function to modify a students data
-def modifyStudent(oldID, newID, newName, newPhone, newMajor, filename="data.json"):
+def modifyStudent(oldID, newName, newPhone, newMajor, filename="data.json"):
     index = findStudent(oldID) #Call the findStudent function to get the index of the student
     with open('data.json', 'r') as file:
         data = json.load(file) #Gets the info from the json
     #A series of if statements to check if they wanted to modify the element being checked
     #If a new element was provided then it sets the old element of the student at the index to the new one
-    if newID != "":
-        data[index]["ID"] = newID
     if newName != "":
         data[index]["Name"] = newName
     if newPhone != "":
