@@ -35,23 +35,26 @@ def startPage():
         if (leave == "Y"):
             ex = True
 
+#Incomplete
 def addStudentPage():
     printPage("AddStudent.txt")
-    check = True
-    while check:
-        Id = input("Enter the student ID: ")
-        if checkValID(Id):
-            Name = input("Please enter the student name (Firstname Lastname): ")
 
-#The function for if option 5 is selected to display all students
+
+def getId():
+    Id = input("Please enter the student ID: ")
+    if checkValID(Id):
+        Name = input("Please enter the student name (Firstname Lastname): ")
+
+# The function for if option 5 is selected to display all students
 def displayAllPage():
     printPage("StudentRecord.txt")
     displayAll()
     startPage()
 
+#A function for choice 4 to go through the steps of getting the student id and then displaying that student
 def displayStudentPage():
-    Id = input("Enter the student ID: ")
-    print("StudentRecord.txt")
+    Id = str(input("Please enter the student ID: "))
+    printPage("StudentRecord.txt")
     if checkValID(Id):
         if IDExists(Id):
             displayStudent(Id)
