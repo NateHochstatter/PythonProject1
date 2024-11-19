@@ -1,7 +1,6 @@
-
+from Pages import *
 def start():
-    inputFile = open("Welcome.txt",'r')
-    print(inputFile.read())
+    printPage("Welcome.txt")
     choice = input(str("Please Enter the Operation Code: "))
     
     ex = False
@@ -9,7 +8,7 @@ def start():
         while(choice != "6"):
             if(choice == "1"):
                 print()
-                #addStudent(,)
+                addStudentPage()
             elif(choice == "2"):
                 print() 
             elif(choice == "3"):
