@@ -16,12 +16,11 @@ def startPage():
     if (ex != True):
         while (choice != "6"):
             if (choice == "1"):
-                print()
                 addStudentPage()
             elif (choice == "2"):
                 print()
             elif (choice == "3"):
-                print()
+                modifyStudentPage()
             elif (choice == "4"):
                 displayStudentPage()
             elif (choice == "5"):
