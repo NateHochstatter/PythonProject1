@@ -9,6 +9,22 @@ def addStudent(newStudent, filename="data.json"):
     with open(filename, 'w') as file:
         json.dump(data, file)
 
+#Function to delete a student
+def deleteStudent(ID, filename="data.json"):
+    with open(filename, 'r') as file:
+        data = json.load(file)
+
+    count = 0
+    for student in data:
+        if student["ID"] == ID:
+            del data[count]
+            break
+        else:
+            count += 1
+
+    with open(filename, 'w') as file:
+        json.dump(data, file)
+
 #Function to find the index of the student with the given id
 def findStudent(ID, filename="data.json"):
     count = 0
