@@ -62,7 +62,7 @@ def getId():
     Id = str(input("Please enter the student ID: "))
     if checkValID(Id):
         if IDExists(Id):
-            print("Student ID already exists in the system. Please enter a different Id")
+            print("\u274c Student ID already exists in the system. Please enter a different Id")
             startPage()
         else:
             return Id
@@ -76,7 +76,7 @@ def getName():
     Name = str(input("Please enter the student name (Firstname Lastname: "))
     if checkName(Name):
         if NameExists(Name):
-            print("Student Name already exists in the system. Please enter a different Name")
+            print("\u274c Student Name already exists in the system. Please enter a different Name")
             startPage()
         else:
             return Name
@@ -91,7 +91,7 @@ def getPhone():
     Phone = str(input("Please enter the student Phone \u260E: "))
     if checkPhone(Phone):
         if phoneExists(Phone):
-            print("Student Phone already exists in the system. Please enter a different Phone")
+            print("\u274c Student Phone already exists in the system. Please enter a different Phone")
             startPage()
         else:
             return Phone

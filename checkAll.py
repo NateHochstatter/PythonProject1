@@ -4,8 +4,8 @@ def checkValID(inp):
     else:
         return False
 def checkMaj(inp):
-    Majors = ["CS", "CYBR", "SE"]
-    if(inp in Majors):
+    Majors = ["CS", "CYBR", "SE", "IT", "DS"]
+    if(inp.upper() in Majors):
         return True
     else:
         return False
