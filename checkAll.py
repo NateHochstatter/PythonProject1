@@ -27,3 +27,41 @@ def checkRace(inp):
         return True
     else:
         return False
+
+def checkPhone(phone):
+    # Check that the length is exactly 12 characters
+    if len(phone) != 12:
+        return False
+
+    # Check if the correct positions contain dashes
+    if phone[3] != '-' or phone[7] != '-':
+        return False
+
+    # Check if the rest of the characters are digits
+    if not (phone[:3].isdigit() and phone[4:7].isdigit() and phone[8:].isdigit()):
+        return False
+
+    return True
+
+
+def checkName(name):
+    # Split the name into first and last names
+    name_parts = name.split()
+
+    # Check if there are exactly two parts: first name and last name
+    if len(name_parts) != 2:
+        return False
+
+    first_name, last_name = name_parts
+
+    # Check that both first and last name are at least 2 letters long
+    if len(first_name) < 2 or len(last_name) < 2:
+        return False
+
+    # Check if the first letter of each name is capitalized and the rest are lowercase
+    if not (first_name[0].isupper() and first_name[1:].islower()):
+        return False
+    if not (last_name[0].isupper() and last_name[1:].islower()):
+        return False
+
+    return True
