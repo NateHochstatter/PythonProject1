@@ -28,6 +28,7 @@ def checkRace(inp):
     else:
         return False
 
+#Function for checking the Phone
 def checkPhone(phone):
     # Check that the length is exactly 12 characters
     if len(phone) != 12:
@@ -43,7 +44,7 @@ def checkPhone(phone):
 
     return True
 
-
+#Function for checking the name
 def checkName(name):
     # Split the name into first and last names
     name_parts = name.split()
