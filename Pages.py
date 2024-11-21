@@ -27,8 +27,7 @@ def startPage():
                 displayAllPage()
             else:
                 print("Wrong input enter a valid number")
-            inputFile = open("Welcome.txt", 'r')
-            print(inputFile.read())
+            printPage("Welcome.txt")
             choice = input(str("Please Enter the Operation Code: "))
         leave = input(str("Do you want to Exit the System? Enter Y to Confirm: "))
         if (leave == "Y"):
@@ -37,83 +36,68 @@ def startPage():
 #Incomplete
 def addStudentPage():
     printPage("AddStudent.txt")
-    ID = getId()
-    # 2 placeholders
-    Name = "test1"
-    Phone = "test1"
-    #Name = getName()
-    #Phone = getPhone()
-    Major = getMajor()
-
-    newStudent = {
-        "ID": ID,
-        "Name": Name,
-        "Phone": Phone,
-        "Major": Major}
-
-    addStudent(newStudent)
-    print("\u2714 New student record has been added")
-    startPage()
-
-#Note for all the get functions below I haven't decided if I
-#want to do this format or the format done for modify students
-#function to ask for an id until they give a valid answer
-def getId():
-    Id = str(input("Please enter the student ID: "))
-    if checkValID(Id):
-        if IDExists(Id):
-            print("\u274c Student ID already exists in the system. Please enter a different Id")
-            startPage()
+    finalcheck = True
+    check = True
+    while check and finalcheck:
+        Id = str(input("Please enter the student ID: "))
+        if checkValID(Id):
+            if IDExists(Id):
+                print("\u274c Student ID already exists in the system. Please enter a different Id")
+                finalcheck = False
+            else:
+                check = False
         else:
-            return Id
-    else:
-        print(f"\u274c Invalid Student ID")
-        getId()
+            print(f"\u274c Invalid Student ID")
 
-#function to ask for a name until they give a valid answer (waiting for checkName)
-'''
-def getName():
-    Name = str(input("Please enter the student name (Firstname Lastname: "))
-    if checkName(Name):
-        if NameExists(Name):
-            print("\u274c Student Name already exists in the system. Please enter a different Name")
-            startPage()
+    check = True
+    while check and finalcheck:
+        Name = str(input("Please enter the student Name: "))
+        if checkName(Name):
+            if NameExists(Name):
+                print("\u274c Student Name already exists in the system. Please enter a different Name")
+                finalcheck = False
+            else:
+                check = False
         else:
-            return Name
-    else:
-        print(f"\u274c Invalid Student Name")
-        getName()
-'''
+            print(f"\u274c Invalid Student Name")
 
-#function to ask for a Phone until they give a valid answer (waiting for checkPhone)
-'''
-def getPhone():
-    Phone = str(input("Please enter the student Phone \u260E: "))
-    if checkPhone(Phone):
-        if phoneExists(Phone):
-            print("\u274c Student Phone already exists in the system. Please enter a different Phone")
-            startPage()
+    check = True
+    while check and finalcheck:
+        Phone = str(input("Please enter the student Phone: "))
+        if checkPhone(Phone):
+            if PhoneExists(Phone):
+                print("\u274c Student Phone already exists in the system. Please enter a different Phone")
+                finalcheck = False
+            else:
+                check = False
         else:
-            return Phone
-    else:
-        print(f"\u274c Invalid Student Phone")
-        getPhone()
-'''
+            print(f"\u274c Invalid Student Phone")
 
-#function to ask for a Major until they give a valid answer
-def getMajor():
-    Major = str(input("Please enter the student Major: "))
-    if checkMaj(Major):
-        return Major
-    else:
-        print(f"\u274c Invalid Student Major")
-        getMajor()
+    check = True
+    while check and finalcheck:
+        Major = str(input("Please enter the student Major: "))
+        if checkMaj(Major):
+            check = False
+        else:
+            print(f"\u274c Invalid Student Major")
+
+
+    if finalcheck:
+        newStudent = {
+            "ID": Id,
+            "Name": Name,
+            "Phone": Phone,
+            "Major": Major}
+
+        addStudent(newStudent)
+        print("\u2714 New student record has been added")
+    #startPage()
 
 # The function for if option 5 is selected to display all students
 def displayAllPage():
     printPage("StudentRecord.txt")
     displayAll()
-    startPage()
+    #startPage()
 
 #A function for choice 4 to go through the steps of getting the student id and then displaying that student
 def displayStudentPage():
@@ -126,40 +110,51 @@ def displayStudentPage():
             print(f"\u274c The student Id {Id} does not exist")
     else:
         print(f"\u274c The student Id {Id} is not valid")
-    startPage()
+    #startPage()
 
 def modifyStudentPage():
     Id = str(input("Please enter the student ID: "))
+    greatCheck = True
     printPage("StudentRecord.txt")
     if checkValID(Id):
         if IDExists(Id):
             displayStudent(Id)
         else:
             print(f"\u274c The student Id {Id} does not exist")
-            startPage()
+            greatCheck = False
+            #startPage()
     else:
         print(f"\u274c The student Id {Id} is not valid")
-        startPage()
+        greatCheck = False
+        #startPage()
 
-    #waiting for check functions
-    '''
-    check = True
-    while check:
-        newName = str(input("New Name: "))
-        if newName == "" or checkName(newName):
-            check = False
-    
-    check = True
-    while check:
-        newPhone = str(input("New Phone: "))
-        if newPhone == "" or checkPhone(newPhone):
-            check = False
-    '''
+    if greatCheck:
+        check = True
+        while check:
+            newName = str(input("New Name: "))
+            if newName == "" or checkName(newName):
+                check = False
+            else:
+                print(f"\u274c Invalid Student Name")
 
-    check = True
-    while check:
-        newMajor = str(input("New Major: "))
-        if newMajor == "" or checkMaj(newMajor):
-            check = False
+        check = True
+        while check:
+            newPhone = str(input("New Phone: "))
+            if newPhone == "" or checkPhone(newPhone):
+                check = False
+            else:
+                print(f"\u274c Invalid Student Phone")
 
-    #modifyStudent(Id, newName, newPhone, newMajor)
+        check = True
+        while check:
+            newMajor = str(input("New Major: "))
+            if newMajor == "" or checkMaj(newMajor):
+                check = False
+            else:
+                print(f"\u274c Invalid Student Major")
+
+        if newName == "" and newPhone == "" and newMajor == "":
+            print("\u274c Record not modified")
+        else:
+            modifyStudent(Id, newName, newPhone, newMajor.upper())
+            print("\u2714 Student record updated successfully")
