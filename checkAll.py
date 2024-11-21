@@ -16,4 +16,14 @@ def checkClass(inp):
         return True
     else:
         return False
-    
+def checkLevel(inp):
+    if(0<inp and inp < 21):
+        return True
+    else:
+        return False
+def checkRace(inp):
+    Races = ["Human","Ardling","Dragonborn","Dwarf","Elf","Gnome","Halfling","Orc","Tiefling"]
+    if(inp in Races):
+        return True
+    else:
+        return False
