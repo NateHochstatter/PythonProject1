@@ -96,22 +96,33 @@ def deleteCharacterPage():
 
     #Checks to make sure that the ID exists
     if IDExists(IDInput) == True:
-        printPage("StudentRecord.txt")
-        displayStudent(IDInput)
-
-        #Verify that the user wants to delete the student
-        response = input("Are you sure you want to delete this character from the record? Y or N: ")
-
-        #Yes
-        if response.lower() == "y":
-            deleteStudent(IDInput)
-            print(f"Student {IDInput} has been deleted")
-        #No
-        elif response.lower() == "n":
-            print(f"Student {IDInput} has not been deleted")
-        #Invalid responses
+        if(CharIDExists(CharID)):
+            
+            printPage("StudentRecord.txt")
+            displayStudent(IDInput)
+    
+            #Verify that the user wants to delete the student
+            response = input("Are you sure you want to delete this character from the record? Y or N: ")
+    
+            #Yes
+            if response.lower() == "y":
+                deleteStudent(IDInput)
+                print(f"Student {IDInput} has been deleted")
+            #No
+            elif response.lower() == "n":
+                print(f"Student {IDInput} has not been deleted")
+            #Invalid responses
+            else:
+                print("INVALID RESPONSE")
         else:
-            print("INVALID RESPONSE")
+            print(f"\u274c The character Id {CharID} does not exist")
     #ID does not exist
     else:
         print(f"\u274c The student Id {IDInput} does not exist")
+def CharIDExists(ID, filename="characterData.json"):
+    with open(filename, 'r') as file:
+        data = json.load(file)
+        for characters in data:
+            if character["ID"] == ID:
+                return True
+    return False 
