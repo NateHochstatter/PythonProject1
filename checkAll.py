@@ -9,4 +9,11 @@ def checkMaj(inp):
         return True
     else:
         return False
-
+def checkClass(inp):
+    Classes = ["Barbarian","Bard","Cleric","Druid","FIghter","Monk","Paladin","Ranger","Rogue","Sorcerer"
+               ,"Warlock","Wizard","Artificer"]
+    if(inp in Classes):
+        return True
+    else:
+        return False
+    
