@@ -100,6 +100,33 @@ def addStudentPage():
         addStudent(newStudent)
         print("\u2714 New student record has been added")
 
+def deleteStudentPage():
+    #Prompt the user to enter a student ID to delete
+    IDInput = input("Please enter a Student ID to delete: ")
+
+    #Checks to make sure that the ID exists
+    #ID Exists
+    if IDExists(IDInput) == True:
+        #Display student information
+        print("=====Student Record=====")
+        displayStudent(IDInput)
+
+        #Verify that the user wants to delete the student
+        response = input("Are you sure you want to delete this student from the record? Y or N: ")
+
+        #Yes
+        if response.lower() == "y":
+            deleteStudent(IDInput)
+            print(f"Student {IDInput} has been deleted")
+        #No
+        elif response.lower() == "n":
+            print(f"Student {IDInput} has not been deleted")
+        #Invalid responses
+        else:
+            print("INVALID RESPONSE")
+    #ID does not exist
+    else:
+        print("Student ID does not exist")
 # The function for if option 5 is selected to display all students
 def displayAllPage():
     #Simple function with me just printing the record text before calling the display function
