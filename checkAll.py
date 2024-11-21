@@ -10,9 +10,9 @@ def checkMaj(inp):
     else:
         return False
 def checkClass(inp):
-    Classes = ["Barbarian","Bard","Cleric","Druid","FIghter","Monk","Paladin","Ranger","Rogue","Sorcerer"
-               ,"Warlock","Wizard","Artificer"]
-    if(inp in Classes):
+    Classes = ["BARBARIAN","BARD","CLERIC","DRUID","FIGHTER","MONK","PALADIN","RANGER","ROGUE","SORCERER"
+               ,"WARLOCK","WIZARD","ARTIFICER"]
+    if(inp.upper() in Classes):
         return True
     else:
         return False
@@ -22,8 +22,8 @@ def checkLevel(inp):
     else:
         return False
 def checkRace(inp):
-    Races = ["Human","Ardling","Dragonborn","Dwarf","Elf","Gnome","Halfling","Orc","Tiefling"]
-    if(inp in Races):
+    Races = ["HUMAN","ARDLING","DRAGONBORN","DWARF","ELF","GNOME","HALFLING","ORC","TIEFLING"]
+    if(inp.upper() in Races):
         return True
     else:
         return False
