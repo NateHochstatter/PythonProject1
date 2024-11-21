@@ -21,7 +21,7 @@ def startPage():
             if (choice == "1"):
                 addStudentPage()
             elif (choice == "2"):
-                print()
+                deleteStudentPage()
             elif (choice == "3"):
                 modifyStudentPage()
             elif (choice == "4"):
@@ -94,7 +94,7 @@ def addStudentPage():
             "ID": Id,
             "Name": Name,
             "Phone": Phone,
-            "Major": Major}
+            "Major": Major.upper()}
 
         # put the data into the function and print that the program was a success
         addStudent(newStudent)
@@ -105,10 +105,9 @@ def deleteStudentPage():
     IDInput = input("Please enter a Student ID to delete: ")
 
     #Checks to make sure that the ID exists
-    #ID Exists
     if IDExists(IDInput) == True:
         #Display student information
-        print("=====Student Record=====")
+        printPage("StudentRecord.txt")
         displayStudent(IDInput)
 
         #Verify that the user wants to delete the student
@@ -126,7 +125,7 @@ def deleteStudentPage():
             print("INVALID RESPONSE")
     #ID does not exist
     else:
-        print("Student ID does not exist")
+        print(f"\u274c The student Id {IDInput} does not exist")
 # The function for if option 5 is selected to display all students
 def displayAllPage():
     #Simple function with me just printing the record text before calling the display function
