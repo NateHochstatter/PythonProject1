@@ -1,10 +1,10 @@
 from Pages import *
 def start():
-    printPage("Welcome.txt")
-    choice = input(str("Please Enter the Operation Code: "))
     
     ex = False
     if(ex!= True):
+        printPage("Welcome.txt")
+        choice = input(str("Please Enter the Operation Code: "))
         while(choice != "6"):
             if(choice == "1"):
                 print()
@@ -19,8 +19,7 @@ def start():
                 print() 
             else:
                 print("Wrong input enter a valid number")
-            inputFile = open("Welcome.txt",'r')
-            print(inputFile.read())
+            printPage("Welcome.txt")
             choice = input(str("Please Enter the Operation Code: "))
         leave = input(str("Do you want to Exit the System? Enter Y to Confirm: "))
         if(leave == "Y"):
