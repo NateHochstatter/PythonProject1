@@ -2,7 +2,7 @@ from Pages import *
 def start():
     
     ex = False
-    if(ex!= True):
+    while(ex!= True):
         printPage("Welcome.txt")
         choice = input(str("Please Enter the Operation Code: "))
         while(choice != "6"):
