@@ -10,7 +10,8 @@ def start():
                 print()
                 addStudentPage()
             elif(choice == "2"):
-                print() 
+                print()
+                deleteStudentPage()
             elif(choice == "3"):
                 print() 
             elif(choice == "4"):
