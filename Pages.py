@@ -101,6 +101,7 @@ def addStudentPage():
         print("\u2714 New student record has been added")
 
 def deleteStudentPage():
+    printPage("DeleteStudent.txt")
     #Prompt the user to enter a student ID to delete
     IDInput = input("Please enter a Student ID to delete: ")
 
