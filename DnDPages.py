@@ -1,24 +1,32 @@
+from JsonStuffDnD import *
+from checkAll import *
+
+def printPage(filename):
+    inputFile = open(filename, 'r') #Get the file text
+    print(inputFile.read()) #Print the file text
+    inputFile.close()
+
 def startPage():
     #If statement and while loop to keep the program running until they select the leave option and confirm
     ex = False
     while (ex != True):
-        printPage("Welcome.txt")  # print the welcome text
+        printPage("WelcomeDnD.txt")  # print the welcome text
         choice = input(str("Please Enter the Operation Code: "))  # get the users choice
         while (choice != "6"):
             #if statements for each option and the function correlating to them
             if (choice == "1"):
-                addCharacterPage()
+                #addCharacterPage()
             elif (choice == "2"):
-                deleteCharacterPage()
+                #deleteCharacterPage()
             elif (choice == "3"):
-                modifyCharacterPage()
+                #modifyCharacterPage()
             elif (choice == "4"):
-                displayCharacterPage()
+                #displayCharacterPage()
             elif (choice == "5"):
-                displayAllPage()
+                #displayAllPage()
             else:
                 print("Wrong input enter a valid number") #error message
-            printPage("Welcome.txt") #Once the chosen function is done start the process again
+            printPage("WelcomeDnD.txt") #Once the chosen function is done start the process again
             choice = input(str("Please Enter the Operation Code: "))
         leave = input(str("Do you want to Exit the System? Enter Y to Confirm: "))
         if (leave.upper() == "Y"):
@@ -79,4 +87,31 @@ def addCharacterPage():
 
         addCharacter(newCharacter)
         print("\u2714 New Character record has been added")
-  
+
+def deleteCharacterPage():
+    printPage("DeleteCharacter.txt")
+    #Prompt the user to enter a student ID to delete
+    IDInput = input("Please enter a Student ID to choose from: ")
+    CharID = input("Please enter a Character ID to choose from: ")
+
+    #Checks to make sure that the ID exists
+    if IDExists(IDInput) == True:
+        printPage("StudentRecord.txt")
+        displayStudent(IDInput)
+
+        #Verify that the user wants to delete the student
+        response = input("Are you sure you want to delete this character from the record? Y or N: ")
+
+        #Yes
+        if response.lower() == "y":
+            deleteStudent(IDInput)
+            print(f"Student {IDInput} has been deleted")
+        #No
+        elif response.lower() == "n":
+            print(f"Student {IDInput} has not been deleted")
+        #Invalid responses
+        else:
+            print("INVALID RESPONSE")
+    #ID does not exist
+    else:
+        print(f"\u274c The student Id {IDInput} does not exist")
