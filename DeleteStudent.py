@@ -1,23 +1,30 @@
+from JsonStuff import *
 import json
 
-#Method to delete students
-def deleteStudent():
+def deleteMenu():
 
-    #Prompt the user to enter a user ID to delete
-    deleteID = int(input("Please enter the student ID you want to delete: "))
+    #Prompt the user to enter a student ID to delete
+    IDInput = input("Please enter a Student ID to delete: ")
+    if IDExists(IDInput) == True:
+        print("=====Student Record=====")
+        displayStudent(IDInput)
 
-    canDelete = IDExists(deleteID, '''insert json file here''')
+        #Iterate the verification question until the user responds with Y or N
+        validResponse = False
+        while(validResponse == False):
+            response = input("Are you sure you want to delete this student from the record? Y or N: ")
 
-    #If canDelete is true, delete the ID
-    if canDelete:
-        with open("data.json","r") as file:
-        data.json = json.load(file)
-        if deleteID in data:
-            del data[deleteID]
-            #This needs changed so it deletes all of the information instead
-            #of just the ID
-            #Also the method is just not finished yet
+            #Yes
+            if response.lower() == "y":
+                deleteStudent(IDInput)
+                print(f"Student {IDInput} has been deleted")
+            #No
+            elif response.lower() == "n":
+                print(f"Student {IDInput} has not been deleted")
+            #Invalid responses
+            else:
+                print("INVALID RESPONSE")
+    else:
+        print("Student ID does not exist")
 
-    
-
-    
+deleteMenu()
