@@ -1,48 +1,10 @@
+#Function for checking the ID
 def checkValID(inp):
+    #Check if the length of the ID is valid and that the ID begins with 700
     if(len(inp) == 6 and inp[:3] == "700"):
         return True
     else:
         return False
-def checkMaj(inp):
-    Majors = ["CS", "CYBR", "SE", "IT", "DS"]
-    if(inp.upper() in Majors):
-        return True
-    else:
-        return False
-def checkClass(inp):
-    Classes = ["BARBARIAN","BARD","CLERIC","DRUID","FIGHTER","MONK","PALADIN","RANGER","ROGUE","SORCERER"
-               ,"WARLOCK","WIZARD","ARTIFICER"]
-    if(inp.upper() in Classes):
-        return True
-    else:
-        return False
-def checkLevel(inp):
-    if(0<inp and inp < 21):
-        return True
-    else:
-        return False
-def checkRace(inp):
-    Races = ["HUMAN","ARDLING","DRAGONBORN","DWARF","ELF","GNOME","HALFLING","ORC","TIEFLING"]
-    if(inp.upper() in Races):
-        return True
-    else:
-        return False
-
-#Function for checking the Phone
-def checkPhone(phone):
-    # Check that the length is exactly 12 characters
-    if len(phone) != 12:
-        return False
-
-    # Check if the correct positions contain dashes
-    if phone[3] != '-' or phone[7] != '-':
-        return False
-
-    # Check if the rest of the characters are digits
-    if not (phone[:3].isdigit() and phone[4:7].isdigit() and phone[8:].isdigit()):
-        return False
-
-    return True
 
 #Function for checking the name
 def checkName(name):
@@ -66,3 +28,59 @@ def checkName(name):
         return False
 
     return True
+
+#Function for checking the Phone
+def checkPhone(phone):
+    # Check that the length is exactly 12 characters
+    if len(phone) != 12:
+        return False
+
+    # Check if the correct positions contain dashes
+    if phone[3] != '-' or phone[7] != '-':
+        return False
+
+    # Check if the rest of the characters are digits
+    if not (phone[:3].isdigit() and phone[4:7].isdigit() and phone[8:].isdigit()):
+        return False
+
+    return True
+
+#Function for checking the Major
+def checkMaj(inp):
+    #Set made of the Majors in Computer Science
+    Majors = ["CS", "CYBR", "SE", "IT", "DS"]
+    
+    #Check if the Major is valid in the set of majors
+    if(inp.upper() in Majors):
+        return True
+    else:
+        return False
+
+#Function for checking if character class is valid
+def checkClass(inp):
+    #Set made of D&D classes
+    Classes = ["BARBARIAN","BARD","CLERIC","DRUID","FIGHTER","MONK","PALADIN","RANGER","ROGUE","SORCERER"
+               ,"WARLOCK","WIZARD","ARTIFICER"]
+    #Check if input is in the set of Classes
+    if(inp.upper() in Classes):
+        return True
+    else:
+        return False
+
+#Function for checking if character level is valid
+def checkLevel(inp):
+    #Check if level is between 1 and 20
+    if(1<=inp and inp <= 20):
+        return True
+    else:
+        return False
+#Function for checking if character race is valid
+def checkRace(inp):
+    #Set of D&D races
+    Races = ["HUMAN","ARDLING","DRAGONBORN","DWARF","ELF","GNOME","HALFLING","ORC","TIEFLING"]
+    #Check if input is in Races
+    if(inp.upper() in Races):
+        return True
+    else:
+        return False
+
