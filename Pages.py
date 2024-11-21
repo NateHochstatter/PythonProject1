@@ -108,7 +108,7 @@ def deleteStudentPage():
     #ID Exists
     if IDExists(IDInput) == True:
         #Display student information
-        print("=====Student Record=====")
+        printPage("StudentRecord.txt")
         displayStudent(IDInput)
 
         #Verify that the user wants to delete the student
