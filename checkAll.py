@@ -69,6 +69,7 @@ def checkClass(inp):
 
 #Function for checking if character level is valid
 def checkLevel(inp):
+    
     #Check if level is between 1 and 20
     if(1<=inp and inp <= 20):
         return True
@@ -78,6 +79,7 @@ def checkLevel(inp):
 def checkRace(inp):
     #Set of D&D races
     Races = ["HUMAN","ARDLING","DRAGONBORN","DWARF","ELF","GNOME","HALFLING","ORC","TIEFLING"]
+    
     #Check if input is in Races
     if(inp.upper() in Races):
         return True
