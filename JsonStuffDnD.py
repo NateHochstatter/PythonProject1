@@ -57,7 +57,7 @@ def modifyCharacter(oldID, newLevel, newCampaign, filename="characterData.json")
     with open(filename, 'w') as file:
         json.dump(data, file) #Writes the updated character info to the json
 
-def IDExists(ID, filename="characterData.json"):
+def CharIDExists(ID, filename="characterData.json"):
     with open(filename, 'r') as file:
         data = json.load(file)
         for characters in data:
