@@ -106,11 +106,11 @@ def deleteCharacterPage():
     
             #Yes
             if response.lower() == "y":
-                deleteStudent(IDInput)
-                print(f"Student {IDInput} has been deleted")
+                deleteCharacter(CharID)
+                print(f"Character {CharID} has been deleted")
             #No
             elif response.lower() == "n":
-                print(f"Student {IDInput} has not been deleted")
+                print(f"Character {CharID} has not been deleted")
             #Invalid responses
             else:
                 print("INVALID RESPONSE")
