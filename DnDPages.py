@@ -79,6 +79,7 @@ def addCharacterPage():
     if finalcheck:
         newCharacter = {
             "ID": Id,
+            "CharID": CharId,
             "Name": Name,
             "Class": Class,
             "Level": Level,
@@ -98,7 +99,7 @@ def deleteCharacterPage():
     if IDExists(IDInput) == True:
         if(CharIDExists(CharID)):
             
-            printPage("StudentRecord.txt")
+            #printPage("CharacterRecord.txt")
             displayStudent(IDInput)
     
             #Verify that the user wants to delete the student
@@ -119,6 +120,87 @@ def deleteCharacterPage():
     #ID does not exist
     else:
         print(f"\u274c The student Id {IDInput} does not exist")
+
+def displayCharacterPage():
+    Id = str(input("Please enter the student ID: ")) #Get the id
+    printPage("CharacterRecord.txt") #print the record text
+    if checkValID(Id): #if statements to ensure the id is both valid and existing
+        if IDExists(Id):
+            displayCharacter(Id) #call the displayStudent function with the given id
+        else:
+            print(f"\u274c The student Id {Id} does not exist") #error messages for if it is invalid or nonexistent
+    else:
+        print(f"\u274c The student Id {Id} is not valid")
+
+def modifyCharacterPage():
+    #starts off by basically doing the displayStudent function but with a key change of setting a
+    # check to false if there is an issue
+    Id = str(input("Please enter the student ID: "))
+    greatCheck = True #check for if there is an issue with the id which means it should stop
+    # trying to modify something
+    printPage("StudentRecord.txt")
+    if checkValID(Id):
+        if IDExists(Id):
+            displayCharacter(Id)
+        else:
+            print(f"\u274c The student Id {Id} does not exist")
+            greatCheck = False
+    else:
+        print(f"\u274c The student Id {Id} is not valid")
+        greatCheck = False
+
+    if greatCheck: #if there were no issues continue as normal
+
+        #A series of while loops that until a valid new data is given
+        check = True
+        while check:
+            newName = str(input("New Name: "))
+            if newName == "" or checkName(newName): #It is ok if the data is left empty or is just a valid name
+                check = False
+            else:
+                print(f"\u274c Invalid Character Name")
+
+        check = True
+        while check:
+            newClass = str(input("New Class: "))
+            if newClass == "" or checkClass(newClass):
+                check = False
+            else:
+                print(f"\u274c Invalid Character Class")
+
+        check = True
+        while check:
+            newLevel = str(input("New Level: "))
+            if newLevel == "" or checkLevel(newLevel):
+                check = False
+            else:
+                print(f"\u274c Invalid Character Level")
+        
+        check = True
+        while check:
+            newRace = str(input("New Race: "))
+            if newRace == "" or checkRace(newRace):
+                check = False
+            else:
+                print(f"\u274c Invalid Character Race")
+
+        check = True
+        while check:
+            newCampaign = str(input("New Campaign: "))
+            if newCampaign == "":
+                check = False
+            else:
+                print(f"\u274c Invalid Campaign")
+
+        if newName == "" and newClass == "" and newLevel == "" and newRace == "" and newCampaign == "": #If they left all the inputs empty
+            # send an error message
+            print("\u274c Record not modified")
+        else:
+            #otherwise call the function and say things went well
+            modifyStudent(Id, newName, newClass, newLevel, newRace, newCampaign)
+            print("\u2714 Student record updated successfully")
+
+
 def CharIDExists(ID, filename="characterData.json"):
     with open(filename, 'r') as file:
         data = json.load(file)
