@@ -44,14 +44,18 @@ def displayAllCharacters(filename="characterData.json"):
                   f"{(str(character["Race"])):<10} {(str(character["Campaign"])):<30}")
 
 #Function to modify a character data
-def modifyCharacter(oldID, newLevel, newCampaign, filename="characterData.json"):
+def modifyCharacter(oldID, newClass, newLevel, newRace, newCampaign, filename="characterData.json"):
     index = findCharacter(oldID) #Call the findCharacter function to get the index of the character
     with open(filename, 'r') as file:
         data = json.load(file) #Gets the info from the json
     #A series of if statements to check if they wanted to modify the element being checked
     #If a new element was provided then it sets the old element of the character at the index to the new one
     if newLevel != "":
+        data[index]["Class"] = newClass
+    if newLevel != "":
         data[index]["Level"] = newLevel
+    if newRace != "":
+        data[index]["Race"] = newRace
     if newCampaign != "":
         data[index]["Campaign"] = newCampaign
     with open(filename, 'w') as file:
