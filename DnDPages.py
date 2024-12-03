@@ -91,7 +91,7 @@ def addCharacterPage():
 
 def deleteCharacterPage():
     printPage("DeleteCharacter.txt")
-    #Prompt the user to enter a student ID to delete
+    #Prompt the user to enter a student ID and CharID to delete
     IDInput = input("Please enter a Student ID to choose from: ")
     CharID = input("Please enter a Character ID to choose from: ")
 
@@ -102,7 +102,7 @@ def deleteCharacterPage():
             #printPage("CharacterRecord.txt")
             displayStudent(IDInput)
     
-            #Verify that the user wants to delete the student
+            #Verify that the user wants to delete the character
             response = input("Are you sure you want to delete this character from the record? Y or N: ")
     
             #Yes
@@ -197,8 +197,8 @@ def modifyCharacterPage():
             print("\u274c Record not modified")
         else:
             #otherwise call the function and say things went well
-            modifyStudent(Id, newName, newClass, newLevel, newRace, newCampaign)
-            print("\u2714 Student record updated successfully")
+            modifyCharacter(Id, newName, newClass, newLevel, newRace, newCampaign)
+            print("\u2714 Character record updated successfully")
 
 
 def CharIDExists(ID, filename="characterData.json"):
