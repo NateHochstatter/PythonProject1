@@ -15,20 +15,20 @@ def startPage():
         while (choice != "6"):
             #if statements for each option and the function correlating to them
             if (choice == "1"):
-                #addCharacterPage()
+                addCharacterPage()
             elif (choice == "2"):
-                #deleteCharacterPage()
+                deleteCharacterPage()
             elif (choice == "3"):
-                #modifyCharacterPage()
+                modifyCharacterPage()
             elif (choice == "4"):
-                #displayCharacterPage()
+                displayCharacterPage()
             elif (choice == "5"):
-                #displayAllPage()
+                displayAllPage()
             else:
                 print("Wrong input enter a valid number") #error message
             printPage("WelcomeDnD.txt") #Once the chosen function is done start the process again
             choice = input(str("Please Enter the Operation Code: "))
-        leave = input(str("Do you want to Exit the System? Enter Y to Confirm: "))
+        leave = input(str("Do you want to return to previous menu? Enter Y to Confirm: "))
         if (leave.upper() == "Y"):
             ex = True
 
