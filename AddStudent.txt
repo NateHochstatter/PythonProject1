@@ -5,4 +5,3 @@
     4. The student ID must be 6 digits long and start with 700
     5. The phone must be in the (xxx-xxx-xxxx) format
     6. Student major must be CS, CYBR, SE, IT, or DS
-

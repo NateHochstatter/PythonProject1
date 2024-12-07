@@ -8,6 +8,13 @@ def checkValID(inp):
 
 #Function for checking the name
 def checkName(name):
+    # While loop to check that there are no digits
+    i = 0
+    while i < len(name):
+        if name[i].isdigit():
+            return False
+        i += 1
+
     # Split the name into first and last names
     name_parts = name.split()
 
